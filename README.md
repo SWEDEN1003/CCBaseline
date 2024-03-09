@@ -6,6 +6,7 @@
 - Pytorch 1.6.0
 - yacs
 - apex
+- GeForce RTX 4090 × 2
 
 ### Get Started
 - Clone this repo:
@@ -47,16 +48,15 @@ Dataset/
 
 - Run `script.sh`
 
-**We are improving the code and the latest version will be released soon.**
-
 ### Citation
 If you find this code useful for your research, please cite our paper:
 
 ```
-@inproceedings{guo2023SCNet,
+@inproceedings{guo2023semantic,
   title={Semantic-aware Consistency Network for Cloth-changing Person Re-Identification},
   author={Guo, Peini and Liu, Hong and Wu, Jianbing and Wang, Guoquan and Wang, Tao},
-  booktitle={Proceedings of the 31th ACM International Conference on Multimedia},
+  booktitle={Proceedings of the 31st ACM International Conference on Multimedia},
+  pages={8730--8739},
   year={2023}
 }
 ```
