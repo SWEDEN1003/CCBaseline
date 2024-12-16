@@ -1,4 +1,5 @@
 import os
+
 from yacs.config import CfgNode as CN
 
 _C = CN()
@@ -7,17 +8,17 @@ _C = CN()
 # -----------------------------------------------------------------------------
 _C.DATA = CN()
 # Root path for dataset directory
-_C.DATA.ROOT = ''
+_C.DATA.ROOT = ""
 # Dataset for evaluation
-_C.DATA.DATASET = 'ltcc'
+_C.DATA.DATASET = "ltcc"
 # Workers for dataloader
-_C.DATA.NUM_WORKERS = 4
+_C.DATA.NUM_WORKERS = 8
 # Height of input image
 _C.DATA.HEIGHT = 384
 # Width of input image
-_C.DATA.WIDTH = 192
+_C.DATA.WIDTH = 128
 # Batch size for training
-_C.DATA.TRAIN_BATCH = 32
+_C.DATA.TRAIN_BATCH = 64
 # Batch size for testing
 _C.DATA.TEST_BATCH = 128
 # The number of instances per identity for training sampler
@@ -27,9 +28,9 @@ _C.DATA.NUM_INSTANCES = 8
 # -----------------------------------------------------------------------------
 _C.AUG = CN()
 # Random crop prob
-_C.AUG.RC_PROB = 0.5
+_C.AUG.RC_PROB = 0.0
 # Random erase prob
-_C.AUG.RE_PROB = 0.5
+_C.AUG.RE_PROB = 0.0
 # Random flip prob
 _C.AUG.RF_PROB = 0.5
 # -----------------------------------------------------------------------------
@@ -37,35 +38,35 @@ _C.AUG.RF_PROB = 0.5
 # -----------------------------------------------------------------------------
 _C.MODEL = CN()
 # Model name
-_C.MODEL.NAME = 'resnet50'
+_C.MODEL.NAME = "resnet50"
 # The stride for laery4 in resnet
 _C.MODEL.RES4_STRIDE = 1
 # feature dim
 _C.MODEL.FEATURE_DIM = 2048
 # Model path for resuming
-_C.MODEL.RESUME = ''
+_C.MODEL.RESUME = ""
 # Global pooling after the backbone
 _C.MODEL.POOLING = CN()
 # Choose in ['avg', 'max', 'gem', 'maxavg']
-_C.MODEL.POOLING.NAME = 'avg'
+_C.MODEL.POOLING.NAME = "avg"
 # Initialized power for GeM pooling
 _C.MODEL.POOLING.P = 3
 # -----------------------------------------------------------------------------
-# Losses for training 
+# Losses for training
 # -----------------------------------------------------------------------------
 _C.LOSS = CN()
 # Classification loss
-_C.LOSS.CLA_LOSS = 'crossentropy'
+_C.LOSS.CLA_LOSS = "crossentropy"
 # Scale for classification loss
-_C.LOSS.CLA_S = 16.
+_C.LOSS.CLA_S = 16.0
 # Margin for classification loss
-_C.LOSS.CLA_M = 0.
+_C.LOSS.CLA_M = 0.0
 # Pairwise loss
-_C.LOSS.PAIR_LOSS = 'triplet'
+_C.LOSS.PAIR_LOSS = "triplet"
 # The weight for pairwise loss
 _C.LOSS.PAIR_LOSS_WEIGHT = 0.0
 # Scale for pairwise loss
-_C.LOSS.PAIR_S = 16.
+_C.LOSS.PAIR_S = 16.0
 # Margin for pairwise loss
 _C.LOSS.PAIR_M = 0.3
 # -----------------------------------------------------------------------------
@@ -73,10 +74,10 @@ _C.LOSS.PAIR_M = 0.3
 # -----------------------------------------------------------------------------
 _C.TRAIN = CN()
 _C.TRAIN.START_EPOCH = 0
-_C.TRAIN.MAX_EPOCH = 150
+_C.TRAIN.MAX_EPOCH = 120
 # Optimizer
 _C.TRAIN.OPTIMIZER = CN()
-_C.TRAIN.OPTIMIZER.NAME = 'adam'
+_C.TRAIN.OPTIMIZER.NAME = "adam"
 # Using amp for training
 _C.TRAIN.AMP = False
 # -----------------------------------------------------------------------------
@@ -95,10 +96,9 @@ _C.SEED = 1
 # Perform evaluation only
 _C.EVAL_MODE = False
 # GPU device ids for CUDA_VISIBLE_DEVICES
-_C.GPU = '0'
+_C.GPU = "0"
 # Path to output folder, overwritten by command line argument
-_C.OUTPUT = ''
-
+_C.OUTPUT = ""
 
 
 def update_config(config, args):

@@ -1,0 +1,21 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "SCNet",
+            "type": "python",
+            "request": "launch",
+            "program": "/perception-hl/weidong.shi1/extrawork/reid/SCNet/main.py",
+            "justMyCode": false,
+            "console": "internalConsole",
+            "args": [
+                "--dataset",
+                "prcc",
+                "--root",
+                "--gpu",
+                "1",
+                "/perception-hl/weidong.shi1/extrawork/reid/SCNet/Dataset",
+            ],
+        }
+    ],
+}

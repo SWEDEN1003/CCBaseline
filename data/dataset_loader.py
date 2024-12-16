@@ -109,10 +109,10 @@ class ImageDataset(Dataset):
         parsing_result_copy = torch.tensor(np.asarray(parsing_result, dtype=np.uint8)).unsqueeze(0).repeat(3, 1, 1)
         img_b = copy.deepcopy(img)
         img_b = np.asarray(img_b, dtype=np.uint8).transpose(2, 0, 1)
-        img_b[(parsing_result_copy == 2) | (parsing_result_copy == 3) | (parsing_result_copy == 4) | (
-                parsing_result_copy == 5) | (parsing_result_copy == 6) | (parsing_result_copy == 7) | (
-                      parsing_result_copy == 10) | (
-                      parsing_result_copy == 11)] = 0
+        # img_b[(parsing_result_copy == 2) | (parsing_result_copy == 3) | (parsing_result_copy == 4) | (
+        #         parsing_result_copy == 5) | (parsing_result_copy == 6) | (parsing_result_copy == 7) | (
+        #               parsing_result_copy == 10) | (
+        #               parsing_result_copy == 11)] = 0
         img = transform(img)
         img_b = img_b.transpose(1, 2, 0)
         img_b = Image.fromarray(img_b, mode='RGB')
